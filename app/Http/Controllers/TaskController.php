@@ -8,7 +8,8 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function showHome() {
-        return view("home");
+        $tasks = Task::all();
+        return view("home", ["tasks" => $tasks]);
     }
 
     public function showCreateTask() {
