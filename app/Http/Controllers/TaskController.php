@@ -22,8 +22,11 @@ class TaskController extends Controller
             "body" => "required|min:8"
         ]);
         
+        $data["title"] = strip_tags($data["title"]);
+        $data["body"] = strip_tags($data["body"]);
+
         Task::create($data);
 
-        return redirect('/');
+        return redirect()->route("tasks.index");
     }
 }
