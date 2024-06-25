@@ -8,7 +8,7 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function showHome() {
-        $tasks = Task::all();
+        $tasks = Task::orderBy("created_at", "desc")->get();
         return view("home", ["tasks" => $tasks]);
     }
 
@@ -30,4 +30,8 @@ class TaskController extends Controller
 
         return redirect()->route("tasks.index");
     }
+
+    public function showTask(Task $task) {
+        return view("show-task", ["task" => $task]);
+    } 
 }
