@@ -30,3 +30,6 @@ Route::post('/tasks/create', [TaskController::class, "createTask"])
 
 Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
     ->name("tasks.show");
+
+Route::delete('/tasks/{task:id}', [TaskController::class, "deleteTask"])
+    ->name("tasks.destroy");

@@ -16,5 +16,14 @@
         <h3>Not Completed</h3>
     @endif
 
-    <button>Edit</button><button>Mark as completed</button><button>Delete</button>
+    <button>Edit</button>
+    
+    <button>Mark as completed</button>
+    
+    <form action="{{ route("tasks.destroy", ["task" => $task->id]) }}" method="POST">
+        @csrf
+        @method("DELETE")
+        <button type="submit">Delete</button>
+    </form>
+
 @endsection

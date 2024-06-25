@@ -28,10 +28,15 @@ class TaskController extends Controller
 
         Task::create($data);
 
-        return redirect()->route("tasks.index")->with("success", "The task successfully created.");
+        return redirect()->route("tasks.index")->with("success", "Task successfully created.");
     }
 
     public function showTask(Task $task) {
         return view("show-task", ["task" => $task]);
     } 
+
+    public function deleteTask(Task $task) {
+        $task->delete();
+        return redirect()->route("tasks.index")->with("success", "Task successfully deleted.");
+    }
 }
