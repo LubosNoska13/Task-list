@@ -14,4 +14,11 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', [TaskController::class, "showHome"]);
+// Tasks related routes
+Route::get('/', [TaskController::class, "showHome"])
+    ->name("tasks.index");
+
+Route::get('/create', [TaskController::class, "showCreateTask"])
+    ->name("tasks.create");
+
+Route::post('/create', [TaskController::class, "createTask"]);
