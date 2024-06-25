@@ -15,10 +15,18 @@ use App\Http\Controllers\TaskController;
 */
 
 // Tasks related routes
-Route::get('/', [TaskController::class, "showHome"])
+Route::get('/', function(){
+    return redirect()->route("tasks.index");
+});
+
+Route::get('/tasks', [TaskController::class, "showHome"])
     ->name("tasks.index");
 
-Route::get('/create', [TaskController::class, "showCreateTask"])
+Route::get('/tasks/create', [TaskController::class, "showCreateTask"])
     ->name("tasks.create");
 
-Route::post('/create', [TaskController::class, "createTask"]);
+Route::post('/tasks/create', [TaskController::class, "createTask"])
+    ->name("tasks.store");
+
+Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
+    ->name("tasks.show");

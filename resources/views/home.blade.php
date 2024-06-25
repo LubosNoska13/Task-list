@@ -3,6 +3,6 @@
     <a href="{{ route("tasks.create") }}">Add Task!</a>
 
     @foreach($tasks as $task)
-        <p><a href="">{{ $task->title }}</a></p>
+        <p><a href="#">{{ $task->title }}</a></p>
     @endforeach
 </x-layout>

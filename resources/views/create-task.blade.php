@@ -1,7 +1,7 @@
 <x-layout>
     <h1>Add Task</h1>
     
-    <form action="/create" method="POST">
+    <form action="{{ route("tasks.store") }}" method="POST">
         @csrf
         <div>
             <label for="text">Title</label> <br />
