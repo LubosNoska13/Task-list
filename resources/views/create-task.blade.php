@@ -1,6 +1,11 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('title', 'Create task')
+@section('main-heading')
     <h1>Add Task</h1>
-    
+@endsection
+
+@section('content')
     <form action="{{ route("tasks.store") }}" method="POST">
         @csrf
         <div>
@@ -19,5 +24,5 @@
         </div>
         <button type="submit">Add Task</button>
         <a href="{{ route("tasks.index") }}">Cancel</a>
-</form>
-</x-layout>
+    </form>
+@endsection
