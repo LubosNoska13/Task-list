@@ -8,6 +8,18 @@
 <body>
     @yield('main-heading')
 
+    @if (session('success'))
+        <div>
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('danger'))
+        <div>
+            {{ session('danger') }}
+        </div>
+    @endif
+
     @yield('content')
 </body>
 </html>
