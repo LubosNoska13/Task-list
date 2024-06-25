@@ -16,7 +16,9 @@
         <h3>Not Completed</h3>
     @endif
 
-    <button>Edit</button>
+    <button>
+        <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
+    </button>
     
     <button>Mark as completed</button>
     

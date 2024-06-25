@@ -2,7 +2,7 @@
 
 @section('title', 'All Tasks')
 @section('main-heading')
-    <h1>The list if tasks</h1>
+    <h1>The list of tasks</h1>
 @endsection
 
 @section('content')

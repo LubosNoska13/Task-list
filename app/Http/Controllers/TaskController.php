@@ -39,4 +39,18 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route("tasks.index")->with("success", "Task successfully deleted.");
     }
+
+    public function showEditTask(Task $task) {
+        return view("edit-task", ["task" => $task]);
+    }
+
+    public function editTask(Request $request, Task $task) {
+        $data = $request->validate([
+            "title" => "required|min:4",
+            "body" => "required|min:8"
+        ]);
+
+        $task->update($data);
+        return redirect()->back()->with("success", "Task successfully updated.");
+    }
 }
