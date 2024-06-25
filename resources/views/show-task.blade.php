@@ -20,7 +20,11 @@
         <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
     </button>
     
-    <button>Mark as completed</button>
+    <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
+        @csrf
+        @method("PUT")
+        <button type="submit">Mark as {{ $task->completed ? "not completed" : "completed" }}</button>
+    </form>
     
     <form action="{{ route("tasks.destroy", ["task" => $task->id]) }}" method="POST">
         @csrf

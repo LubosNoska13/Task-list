@@ -33,6 +33,9 @@ Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
 
 Route::delete('/tasks/{task:id}', [TaskController::class, "deleteTask"])
     ->name("tasks.destroy");
+    
+Route::put('/tasks/{task:id}', [TaskController::class, "markTask"])
+    ->name("tasks.mark");
 
 Route::get('/tasks/{task:id}/edit', [TaskController::class, "showEditTask"])
     ->name("tasks.edit");

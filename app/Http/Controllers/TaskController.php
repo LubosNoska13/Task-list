@@ -53,4 +53,10 @@ class TaskController extends Controller
         $task->update($data);
         return redirect()->back()->with("success", "Task successfully updated.");
     }
+
+    public function markTask(Task $task) {
+        $task->toggleComplete();
+        $text = $task->completed ? "complete" : "not complete";
+        return redirect()->back()->with("success", "Task mark as " . $text);
+    }
 }

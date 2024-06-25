@@ -13,4 +13,9 @@ class Task extends Model
         "title",
         "body"
     ];
+
+    public function toggleComplete() {
+        $this->completed = !$this->completed;
+        $this->save();
+    }
 }
