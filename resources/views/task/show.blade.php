@@ -27,13 +27,13 @@
         <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
             @csrf
             @method("PUT")
-            <button type="submit" class="rounded-md px-2 py-1 text-center text-slate-700 shadow-sm ring-1 ring-slate-700/30 hover:bg-slate-50">Mark as {{ $task->completed ? "not completed" : "completed" }}</button>
+            <x-button>Mark as {{ $task->completed ? "not completed" : "completed" }}</x-button>
         </form>
         
         <form action="{{ route("tasks.destroy", ["task" => $task->id]) }}" method="POST">
             @csrf
             @method("DELETE")
-            <button type="submit" class="rounded-md px-2 py-1 text-center text-slate-700 shadow-sm ring-1 ring-slate-700/30 hover:bg-slate-50">Delete</button>
+            <x-button>Delete</x-button>
         </form>
     </div>
 

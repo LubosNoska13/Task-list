@@ -20,7 +20,7 @@
                 <p class="text-red-500 text-sm font-medium">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="rounded-md mr-2 px-2 py-1 text-center text-slate-700 shadow-sm ring-1 ring-slate-700/30 hover:bg-slate-50">Add Task</button>
+        <x-button class="mr-2">Add Task</x-button>
         <a href="{{ route("tasks.index") }}" class="underline decoration-pink-500">Cancel</a>
     </form>
 @endsection

@@ -21,7 +21,7 @@
                 <p>{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="rounded-md mr-2 px-2 py-1 text-center text-slate-700 shadow-sm ring-1 ring-slate-700/30 hover:bg-slate-50">Edit Task</button>
+        <x-button type="hello">Edit Task</x-button>
         <a href="{{ route("tasks.show", ["task" => $task->id]) }}" class="underline decoration-pink-500">Cancel</a>
     </form>
 @endsection
