@@ -11,4 +11,8 @@
     @foreach($tasks as $task)
         <p><a href="{{ route("tasks.show", ["task" => $task->id]) }}">{{ $task->title }}</a></p>
     @endforeach
+
+    @if ($tasks->hasPages())
+        <div>{{ $tasks->links() }}</div>
+    @endif
 @endsection

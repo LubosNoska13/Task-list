@@ -8,7 +8,8 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function showHome() {
-        $tasks = Task::orderBy("created_at", "desc")->get();
+        $tasks = Task::latest()->paginate();
+        // return $tasks;
         return view("home", ["tasks" => $tasks]);
     }
 
