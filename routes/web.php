@@ -19,26 +19,29 @@ Route::get('/', function(){
     return redirect()->route("tasks.index");
 });
 
-Route::get('/tasks', [TaskController::class, "showHome"])
-    ->name("tasks.index");
+Route::resource('tasks', TaskController::class);
 
-Route::get('/tasks/create', [TaskController::class, "showCreateTask"])
-    ->name("tasks.create");
-
-Route::post('/tasks/create', [TaskController::class, "createTask"])
-    ->name("tasks.store");
-
-Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
-    ->name("tasks.show");
-
-Route::delete('/tasks/{task:id}', [TaskController::class, "deleteTask"])
-    ->name("tasks.destroy");
-    
-Route::put('/tasks/{task:id}', [TaskController::class, "markTask"])
+Route::put('/tasks/{task:id}/mark', [TaskController::class, "mark"])
     ->name("tasks.mark");
 
-Route::get('/tasks/{task:id}/edit', [TaskController::class, "showEditTask"])
-    ->name("tasks.edit");
+// Route::get('/tasks', [TaskController::class, "showHome"])
+//     ->name("tasks.index");
+
+// Route::get('/tasks/create', [TaskController::class, "showCreateTask"])
+//     ->name("tasks.create");
+
+// Route::post('/tasks/create', [TaskController::class, "createTask"])
+//     ->name("tasks.store");
+
+// Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
+//     ->name("tasks.show");
+
+// Route::delete('/tasks/{task:id}', [TaskController::class, "deleteTask"])
+//     ->name("tasks.destroy");
     
-Route::put('/tasks/{task:id}/edit', [TaskController::class, "editTask"])
-    ->name("tasks.update");
+
+// Route::get('/tasks/{task:id}/edit', [TaskController::class, "showEditTask"])
+//     ->name("tasks.edit");
+    
+// Route::put('/tasks/{task:id}/edit', [TaskController::class, "editTask"])
+//     ->name("tasks.update");

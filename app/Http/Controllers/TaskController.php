@@ -2,22 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function showHome() {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         $tasks = Task::latest()->paginate();
-        // return $tasks;
-        return view("home", ["tasks" => $tasks]);
+        return view("task.index", ["tasks" => $tasks]);
     }
 
-    public function showCreateTask() {
-        return view("create-task");
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view("task.create");
     }
 
-    public function createTask(Request $request) {
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         // Validate data
         $data = $request->validate([
             "title" => "required|min:4",
@@ -32,20 +43,27 @@ class TaskController extends Controller
         return redirect()->route("tasks.index")->with("success", "Task successfully created.");
     }
 
-    public function showTask(Task $task) {
-        return view("show-task", ["task" => $task]);
-    } 
-
-    public function deleteTask(Task $task) {
-        $task->delete();
-        return redirect()->route("tasks.index")->with("success", "Task successfully deleted.");
+    /**
+     * Display the specified resource.
+     */
+    public function show(Task $task)
+    {
+        return view("task.show", ["task" => $task]);
     }
 
-    public function showEditTask(Task $task) {
-        return view("edit-task", ["task" => $task]);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Task $task)
+    {
+        return view("task.edit", ["task" => $task]);
     }
 
-    public function editTask(Request $request, Task $task) {
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Task $task)
+    {
         $data = $request->validate([
             "title" => "required|min:4",
             "body" => "required|min:8"
@@ -55,7 +73,19 @@ class TaskController extends Controller
         return redirect()->back()->with("success", "Task successfully updated.");
     }
 
-    public function markTask(Task $task) {
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return redirect()->route("tasks.index")->with("success", "Task successfully deleted.");
+    }
+
+    /**
+     * Toggle completed state of the task.
+     */
+    public function mark(Task $task) {
         $task->toggleComplete();
         $text = $task->completed ? "complete" : "not complete";
         return redirect()->back()->with("success", "Task mark as " . $text);
