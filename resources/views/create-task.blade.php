@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Create task')
-@section('main-heading')
-    <h1>Add Task</h1>
-@endsection
+@section('main-heading', 'Add Task')
 
 @section('content')
     <form action="{{ route("tasks.store") }}" method="POST">

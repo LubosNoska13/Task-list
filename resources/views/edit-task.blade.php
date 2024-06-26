@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Edit task')
-@section('main-heading')
-    <h1>Edit Task</h1>
-@endsection
+@section('main-heading', 'Edit Task')
 
 @section('content')
     <form action="{{ route("tasks.update", ["task" => $task->id]) }}" method="POST">

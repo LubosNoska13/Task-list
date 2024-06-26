@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Task')
-@section('main-heading')
-    <h1>{{ $task->title }}</h1>
-@endsection
+@section('main-heading', $task->title)
 
 @section('content')
     <a href="{{ route("tasks.index") }}">&larr;Go back to the task list!</a>
