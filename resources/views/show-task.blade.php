@@ -4,18 +4,23 @@
 @section('main-heading', $task->title)
 
 @section('content')
-    <a href="{{ route("tasks.index") }}">&larr;Go back to the task list!</a>
-    <p>{{ $task->body }}</p>
-    <p>Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p> 
+    <div class="mb-4">
+        <a href="{{ route("tasks.index") }}" class="font-medium underline text-gray-700 decoration-pink-500">&larr;Go back to the task list!</a>
+    </div>
 
-    @if ($task->completed)
-        <h3>Completed</h3>
-    @else
-        <h3>Not Completed</h3>
-    @endif
+    <p class="mb-4 text-slate-700">{{ $task->body }}</p>
+    <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p> 
+
+    <div class="mb-4">
+        @if ($task->completed)
+            <h3 class="font-medium text-green-500">Completed</h3>
+        @else
+            <h3 class="font-medium text-red-500">Not Completed</h3>
+        @endif
+    </div>
 
     <button>
-        <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
+        <a href="{{ route("tasks.edit", ["task" => $task->id]) }}" class="rounded-md px-2 py-1 text-center font-medium text-slate-700 shadow-sm ring-1 ring-slate-700/30 hover:bg-slate-50">Edit</a>
     </button>
     
     <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
