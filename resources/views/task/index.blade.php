@@ -10,7 +10,7 @@
 
     @foreach($tasks as $task)
         <p class="mb-1">
-            <a href="{{ route("tasks.show", ["task" => $task->id]) }}" @class(['underline decoration-sky-400','line-through decoration-slate-600' => $task->completed])>{{ $task->title }}</a>
+            <a href="{{ route("tasks.show", ["task" => $task->id]) }}" @class(['underline decoration-sky-400','italic line-through decoration-slate-600' => $task->completed])>{{ $task->title }}</a>
         </p>
     @endforeach
 
