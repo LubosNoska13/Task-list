@@ -18,7 +18,7 @@ class TaskFactory extends Factory
     {
         return [
             "title" => fake()->sentence,
-            "body" => fake()->paragraph(9, true),
+            "description" => fake()->paragraph(9, true),
             "completed" => fake()->boolean
         ];
     }

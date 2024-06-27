@@ -8,7 +8,7 @@
         <a href="{{ route("tasks.index") }}" class="font-medium underline text-gray-700 decoration-pink-500">&larr;Go back to the task list!</a>
     </div>
 
-    <p class="mb-4 text-slate-700">{{ $task->body }}</p>
+    <p class="mb-4 text-slate-700">{{ $task->description }}</p>
     <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p> 
 
     <div class="mb-4">

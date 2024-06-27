@@ -32,11 +32,11 @@ class TaskController extends Controller
         // Validate data
         $data = $request->validate([
             "title" => "required|min:4",
-            "body" => "required|min:8"
+            "description" => "required|min:8"
         ]);
         
         $data["title"] = strip_tags($data["title"]);
-        $data["body"] = strip_tags($data["body"]);
+        $data["description"] = strip_tags($data["description"]);
 
         Task::create($data);
 
@@ -66,7 +66,7 @@ class TaskController extends Controller
     {
         $data = $request->validate([
             "title" => "required|min:4",
-            "body" => "required|min:8"
+            "description" => "required|min:8"
         ]);
 
         $task->update($data);
