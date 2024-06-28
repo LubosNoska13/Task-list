@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,24 +25,8 @@ Route::resource('tasks', TaskController::class);
 Route::put('/tasks/{task:id}/mark', [TaskController::class, "mark"])
     ->name("tasks.mark");
 
-// Route::get('/tasks', [TaskController::class, "showHome"])
-//     ->name("tasks.index");
-
-// Route::get('/tasks/create', [TaskController::class, "showCreateTask"])
-//     ->name("tasks.create");
-
-// Route::post('/tasks/create', [TaskController::class, "createTask"])
-//     ->name("tasks.store");
-
-// Route::get('/tasks/{task:id}', [TaskController::class, "showTask"])
-//     ->name("tasks.show");
-
-// Route::delete('/tasks/{task:id}', [TaskController::class, "deleteTask"])
-//     ->name("tasks.destroy");
-    
-
-// Route::get('/tasks/{task:id}/edit', [TaskController::class, "showEditTask"])
-//     ->name("tasks.edit");
-    
-// Route::put('/tasks/{task:id}/edit', [TaskController::class, "editTask"])
-//     ->name("tasks.update");
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'loginDb'])->name('loginDb');
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'registerDb'])->name('registerDb');
+Route::get('/logout', [UserController::class, 'logout']);
