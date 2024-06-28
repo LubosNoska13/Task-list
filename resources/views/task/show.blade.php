@@ -11,7 +11,7 @@
     <p class="mb-4 text-slate-700">{{ $task->description }}</p>
     <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p> 
 
-    <div class="mb-4">
+    <div class="mb-8">
         @if ($task->completed)
             <h3 class="font-medium text-green-500">Completed</h3>
         @else
