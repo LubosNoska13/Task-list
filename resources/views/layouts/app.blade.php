@@ -17,11 +17,14 @@
     </div>
 
     <main class="container mx-auto max-w-2xl">
-        <div class="py-10 px-16 bg-white mx-auto min-h-96 rounded-xl border border-gray-200 shadow-sm">
+        <div class="relative py-10 px-16 bg-white mx-auto min-h-96 rounded-xl border border-gray-200 shadow-sm">
             <h1 class="text-2xl mb-6 font-bold">@yield('main-heading')</h1>
 
             @yield('content')
+            <x-progress-bar />
         </div>
     </main>
+
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>
