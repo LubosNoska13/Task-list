@@ -5,17 +5,18 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Task;
 
-class Button extends Component
+class ProgressBar extends Component
 {
-    public $type;
-
     /**
      * Create a new component instance.
      */
-    public function __construct($type = "submit")
+    // public $res = Task::where('completed', 1) / Task::count() * 100;
+
+    public function __construct()
     {
-        $this->type = $type;
+        //
     }
 
     /**
@@ -23,6 +24,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.button');
+        return view('components.progress-bar');
     }
 }

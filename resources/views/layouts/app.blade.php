@@ -7,40 +7,24 @@
     @vite('resources/css/app.css')
     @vite(['resources/js/app.js'])
 </head>
-<body class="container mx-auto mt-10 mb-10 max-w-lg">
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    @include('layouts.navigation')
 
-    <h1 class="text-2xl mb-4 font-bold">@yield('main-heading')</h1>
+    <div class="h-10"></div>
+    <div class="relative">
+        <x-flash-message type="success" />
+        <x-flash-message type="danger" />
+    </div>
 
-    @if (session('success'))
-        <div id="flash-message" class="relative mb-10 rounded-md shadow-sm text-green-700 bg-green-100 px-4 py-3" role="alert">
-            <p class="font-medium mb-2">Success!<p/>
-            <p>{{ session('success') }}</p>
+    <main class="container mx-auto max-w-2xl">
+        <div class="relative py-10 px-16 bg-white mx-auto min-h-96 rounded-xl border border-gray-200 shadow-sm">
+            <h1 class="text-2xl mb-6 font-bold">@yield('main-heading')</h1>
 
-            <span id="flash-message-cross" class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="1.5" @click="flash = false"
-                    stroke="currentColor" class="h-6 w-6 cursor-pointer">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </span>
+            @yield('content')
+            <x-progress-bar />
         </div>
-    @endif
+    </main>
 
-    @if (session('danger'))
-        <div id="flash-message" class="relative mb-10 rounded-md shadow-sm text-red-700 bg-red-100 px-4 py-3" role="alert">
-            <p class="font-medium mb-2">Success!<p/>
-            <p>{{ session('danger') }}</p>
-
-            <span id="flash-message-cross" class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="1.5" @click="flash = false"
-                    stroke="currentColor" class="h-6 w-6 cursor-pointer">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </span>
-        </div>
-    @endif
-
-    @yield('content')
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>
