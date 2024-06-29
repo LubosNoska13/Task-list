@@ -20,21 +20,17 @@
     </div>
 
     <div class="flex gap-2">
-        <x-button>
-            <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
-        </x-button>
-        
-        <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
-            @csrf
-            @method("PUT")
-            <x-button>Mark as {{ $task->completed ? "not completed" : "completed" }}</x-button>
-        </form>
-        
-        <form action="{{ route("tasks.destroy", ["task" => $task->id]) }}" method="POST">
-            @csrf
-            @method("DELETE")
-            <x-button-danger>Delete</x-button-danger>
-        </form>
+      <x-button>
+          <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
+      </x-button>
+      
+      <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
+          @csrf
+          @method("PUT")
+          <x-button>Mark as {{ $task->completed ? "not completed" : "completed" }}</x-button>
+      </form>
+      
+      <x-button-danger :delete_item=$task>Delete</x-button-danger>
     </div>
 
 @endsection

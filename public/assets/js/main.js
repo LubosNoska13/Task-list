@@ -6,8 +6,6 @@
 // });
 
 const avatarDropdown = document.getElementById("dropdownAvatarNameButton");
-console.log(avatarDropdown);
-
 avatarDropdown.addEventListener("click", function() {
     const dropdownMenu = document.getElementById("dropdownAvatarName");
     if (dropdownMenu.classList.contains("hidden")) {
@@ -17,4 +15,17 @@ avatarDropdown.addEventListener("click", function() {
         dropdownMenu.classList.remove("fixed");
         dropdownMenu.classList.add("hidden");
     }
+});
+
+
+const dangerBtn = document.getElementById("danger-button");
+dangerBtn.addEventListener("click", function() {
+    const popupModal = document.getElementById("popup-modal");
+    popupModal.classList.toggle("hidden");    
+});
+
+const popupCancel = document.getElementById("popup-modal-cancel");
+popupCancel.addEventListener("click", function() {
+    const popupModal = document.getElementById("popup-modal");
+    popupModal.classList.toggle("hidden");    
 });
