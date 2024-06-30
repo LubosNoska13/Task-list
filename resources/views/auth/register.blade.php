@@ -4,7 +4,7 @@
 @section('main-heading', 'Register')
 
 @section('content')
-    <form action="{{ route('registerDb') }}" method="POST">
+    <form action="{{ route('register') }}" method="POST">
         @csrf
         <x-forms.input name="name">{{ old('name') }}</x-forms.input>
         <x-forms.input name="email" type="email">{{ old('email') }}</x-forms.input>
