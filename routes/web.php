@@ -20,13 +20,19 @@ Route::get('/', function(){
     return redirect()->route("tasks.index");
 });
 
-Route::resource('tasks', TaskController::class);
+Route::middleware('auth')->group(function() {
 
-Route::put('/tasks/{task:id}/mark', [TaskController::class, "mark"])
-    ->name("tasks.mark");
+    Route::resource('tasks', TaskController::class);
+    
+    Route::put('/tasks/{task:id}/mark', [TaskController::class, "mark"])
+        ->name("tasks.mark");
+});
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'loginDb'])->name('loginDb');
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'registerDb'])->name('registerDb');
-Route::get('/logout', [UserController::class, 'logout']);
+
+// Route::get('/login', [UserController::class, 'login'])->name('login');
+// Route::post('/login', [UserController::class, 'loginDb'])->name('loginDb');
+// Route::get('/register', [UserController::class, 'register'])->name('register');
+// Route::post('/register', [UserController::class, 'registerDb'])->name('registerDb');
+// Route::get('/logout', [UserController::class, 'logout']);
+
+require __DIR__.'\auth.php';

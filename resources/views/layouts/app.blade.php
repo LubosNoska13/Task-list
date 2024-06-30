@@ -8,7 +8,9 @@
     @vite(['resources/js/app.js'])
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
-    @include('layouts.navigation')
+    @auth
+        @include('layouts.navigation')
+    @endauth
 
     <div class="h-10"></div>
     <div class="relative">
