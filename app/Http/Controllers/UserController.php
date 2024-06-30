@@ -7,9 +7,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function login() {
-        return view('login');
-    }
+    // public function login() {
+    //     return view('login');
+    // }
 
     public function loginDb(Request $request) {
         $data = $request->validate([
@@ -25,31 +25,31 @@ class UserController extends Controller
         }
     }
 
-    public function register() {
-        return view('register');
-    }
+    // public function register() {
+    //     return view('register');
+    // }
 
-    public function registerDb(Request $request) {
-        $data = $request->validate([
-            "name" => "required|min:3|max:25|unique:users,name",
-            "email" => "required|email|unique:users,email",
-            "password" => "required|min:6|max:20"
-        ]);
+    // public function registerDb(Request $request) {
+    //     $data = $request->validate([
+    //         "name" => "required|min:3|max:25|unique:users,name",
+    //         "email" => "required|email|unique:users,email",
+    //         "password" => "required|min:6|max:20"
+    //     ]);
 
-        $data["name"] = strip_tags($data["name"]);
-        $data["email"] = strip_tags($data["email"]);
-        $data["password"] = strip_tags($data["password"]);
-        $data["password"] = bcrypt($data["password"]);
+    //     $data["name"] = strip_tags($data["name"]);
+    //     $data["email"] = strip_tags($data["email"]);
+    //     $data["password"] = strip_tags($data["password"]);
+    //     $data["password"] = bcrypt($data["password"]);
         
-        $user = User::create($data);
+    //     $user = User::create($data);
 
-        auth()->login($user);
+    //     auth()->login($user);
 
-        return redirect()->route("tasks.index")->with("success", "An account successfully created.");
-    }
+    //     return redirect()->route("tasks.index")->with("success", "An account successfully created.");
+    // }
 
-    public function logout() {
-        auth()->logout();
-        return redirect()->route('login');
-    }
+    // public function logout() {
+    //     auth()->logout();
+    //     return redirect()->route('login');
+    // }
 }
