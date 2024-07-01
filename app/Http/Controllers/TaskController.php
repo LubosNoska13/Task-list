@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -12,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->paginate(12);
+        $tasks = Auth::user()->tasks()->latest()->paginate(12);
         return view("task.index", ["tasks" => $tasks]);
     }
 
