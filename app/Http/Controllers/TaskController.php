@@ -38,6 +38,7 @@ class TaskController extends Controller
         
         $data["title"] = strip_tags($data["title"]);
         $data["description"] = strip_tags($data["description"]);
+        $data["user_id"] = auth()->id();
 
         Task::create($data);
 

@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title')</title>
-    @vite('resources/css/app.css')
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
-    @auth
-        @include('layouts.navigation')
-    @endauth
+    @include('layouts.navigation')
 
     <div class="h-10"></div>
     <div class="relative">
