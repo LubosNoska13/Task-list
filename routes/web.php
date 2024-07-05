@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +26,9 @@ Route::middleware('auth')->group(function() {
     
     Route::put('/tasks/{task:id}/mark', [TaskController::class, "mark"])
         ->name("tasks.mark");
+    
+    Route::get('/profile', [ProfileController::class, 'edit']);
 });
 
-
-// Route::get('/login', [UserController::class, 'login'])->name('login');
-// Route::post('/login', [UserController::class, 'loginDb'])->name('loginDb');
-// Route::get('/register', [UserController::class, 'register'])->name('register');
-// Route::post('/register', [UserController::class, 'registerDb'])->name('registerDb');
-// Route::get('/logout', [UserController::class, 'logout']);
 
 require __DIR__.'\auth.php';

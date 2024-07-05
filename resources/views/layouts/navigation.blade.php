@@ -25,13 +25,13 @@
                         <a href="#" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
                     </li>
                 </ul>
                 <div class="py-2">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out<button/>
+                        <button type="submit" class="inline-block text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out<button/>
                     </form>
                 </div>
             </div>

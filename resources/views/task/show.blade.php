@@ -9,7 +9,7 @@
     </div>
 
     <p class="mb-4 text-slate-700">{{ $task->description }}</p>
-    <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p> 
+    <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} &sdot; Updated {{ $task->updated_at->diffForHumans() }}</p>
 
     <div class="mb-8">
         @if ($task->completed)
@@ -20,17 +20,17 @@
     </div>
 
     <div class="flex gap-2">
-      <x-button>
-          <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
-      </x-button>
-      
-      <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
-          @csrf
-          @method("PUT")
-          <x-button>Mark as {{ $task->completed ? "not completed" : "completed" }}</x-button>
-      </form>
-      
-      <x-button-danger :delete_item=$task>Delete</x-button-danger>
+        <x-button>
+            <a href="{{ route("tasks.edit", ["task" => $task->id]) }}">Edit</a>
+        </x-button>
+
+        <form action="{{ route("tasks.mark", ["task" => $task->id]) }}" method="POST">
+            @csrf
+            @method("PUT")
+            <x-button>Mark as {{ $task->completed ? "not completed" : "completed" }}</x-button>
+        </form>
+
+        <x-button-danger :delete_item=$task>Delete</x-button-danger>
     </div>
 
 @endsection
