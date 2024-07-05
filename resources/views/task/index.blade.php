@@ -4,8 +4,9 @@
 @section('main-heading', 'The list of tasks')
 
 @section('content')
+
     <div class="mb-4">
-        <a href="{{ route("tasks.create") }}" class="font-medium text-gray-700 underline decoration-pink-500">Add Task!</a>
+        <x-link :route="route('tasks.create')">Add Task!</x-link>
     </div>
 
     <!-- Show all tasks  -->

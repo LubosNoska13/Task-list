@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="mb-8">
-        <a href="{{ route("tasks.index") }}" class="font-medium underline text-gray-700 decoration-pink-500">&larr;Go back to the task list!</a>
+        <x-link :route="route('tasks.index')">&larr;Go back to the task list!</x-link>
     </div>
 
     <p class="mb-10 text-slate-700">{{ $task->description }}</p>

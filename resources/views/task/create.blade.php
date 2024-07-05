@@ -10,6 +10,6 @@
         <x-forms.textarea name="description">{{ old('description') }}</x-forms.textarea>
         
         <x-button class="mr-2">Add Task</x-button>
-        <a href="{{ route("tasks.index") }}" class="underline decoration-pink-500">Cancel</a>
+        <x-link :route="route('tasks.index')">Cancel</x-link>
     </form>
 @endsection
